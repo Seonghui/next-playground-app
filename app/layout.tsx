@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./Providers";
+import StyledComponentsRegistry from "./commons/lib/AntdRegistry";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <p>RootLayout</p>
         <div>modal {modal}</div>
-        <Providers>{children}</Providers>
+        <Providers>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </Providers>
       </body>
     </html>
   );
