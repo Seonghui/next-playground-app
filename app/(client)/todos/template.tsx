@@ -13,7 +13,7 @@ export default function ClientTemplate({
   }, []);
   return (
     <div>
-      <p>ClientTemplate</p>
+      <p>TodosTemplate</p>
       {children}
     </div>
   );

@@ -13,13 +13,17 @@ export const metadata: Metadata = {
 // NOTE: 클라이언트 컴포넌트로 사용 불가능
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  analytics: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <p>RootLayout</p>
+        <div>modal {modal}</div>
         <Providers>{children}</Providers>
       </body>
     </html>

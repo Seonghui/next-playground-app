@@ -6,12 +6,12 @@ export default function ClientPage() {
   const { data } = useGetTodos();
   return (
     <h1>
-      <div> Hello, ClientPage</div>
-      <ul>
+      <div> Hello, TodoPage</div>
+      {/* <ul>
         {data.todos?.map((item) => (
           <li key={item.id}>{item.todo}</li>
         ))}
-      </ul>
+      </ul> */}
     </h1>
   );
 }
