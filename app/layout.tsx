@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./Providers";
 import StyledComponentsRegistry from "./commons/lib/AntdRegistry";
+import { Providers } from "./providers";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,19 +15,28 @@ export const metadata: Metadata = {
 // NOTE: 클라이언트 컴포넌트로 사용 불가능
 export default function RootLayout({
   children,
-  modal,
+  modals,
 }: {
   children: React.ReactNode;
   analytics: React.ReactNode;
-  modal: React.ReactNode;
+  modals: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <p>RootLayout</p>
-        <div>modal {modal}</div>
+        <ul>
+          <li>
+            <Link href="/todos">todos</Link>
+            <Link href="/posts">posts</Link>
+          </li>
+        </ul>
+
         <Providers>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+
+          {modals}
+          <div id="modal-root" />
         </Providers>
       </body>
     </html>

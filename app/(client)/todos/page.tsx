@@ -14,6 +14,7 @@ import {
   Flex,
   Space,
 } from "antd";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ClientPage() {
@@ -37,15 +38,9 @@ export default function ClientPage() {
     },
   });
 
-  const deleteMutation = useMutation({
-    mutationFn: todosService.deleteTodo,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
-    },
-  });
-
+  const router = useRouter();
   return (
-    <h1>
+    <div>
       <NewTodoInput />
       <List
         header={<div>Header</div>}
@@ -84,7 +79,7 @@ export default function ClientPage() {
                     <Button
                       key={item.id}
                       type="text"
-                      onClick={() => deleteMutation.mutate(item)}
+                      onClick={() => router.push(`/todos/${item.id}/delete`)}
                     >
                       delete
                     </Button>,
@@ -119,6 +114,6 @@ export default function ClientPage() {
           </List.Item>
         )}
       />
-    </h1>
+    </div>
   );
 }

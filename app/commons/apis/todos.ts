@@ -9,8 +9,8 @@ const todosService = {
     const { data } = await instance.put<Todo>(`/todos/${todo.id}`, todo);
     return data;
   },
-  deleteTodo: async (todo: Todo): Promise<Todo> => {
-    const { data } = await instance.delete<Todo>(`/todos/${todo.id}`);
+  deleteTodo: async (id: string): Promise<Todo> => {
+    const { data } = await instance.delete<Todo>(`/todos/${id}`);
     return data;
   },
   addTodoItem: async (message: string): Promise<Todo> => {

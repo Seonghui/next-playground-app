@@ -43,12 +43,6 @@
       "userId": 47
     },
     {
-      "id": 10,
-      "todo": "Have a football scrimmage with some friends",
-      "completed": false,
-      "userId": 19
-    },
-    {
       "id": 11,
       "todo": "Text a friend I haven't talked to in a long time",
       "completed": false,
@@ -163,13 +157,12 @@
       "userId": 30
     },
     {
-      "id": 30,
-      "todo": "Take cat on a walk",
+      "todo": "dfsfsf",
       "completed": false,
-      "userId": 15
+      "id": 30
     },
     {
-      "todo": "sdfsfdsf",
+      "todo": "dfdfdf",
       "completed": false,
       "id": 31
     }

@@ -11,14 +11,6 @@ export default function TodosLayout({
   return (
     <section>
       <p>TodosLayout</p>
-      {/* Include shared UI here e.g. a header or sidebar */}
-      <nav>
-        <ul>
-          {segments.map((segment, index) => (
-            <li key={index}>segment {segment}</li>
-          ))}
-        </ul>
-      </nav>
 
       {children}
     </section>

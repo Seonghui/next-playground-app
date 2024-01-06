@@ -12,9 +12,9 @@ export default function ClientTemplate({
     console.log("ClientTemplate Rendered");
   }, []);
   return (
-    <div>
+    <>
       <p>TodosTemplate</p>
       {children}
-    </div>
+    </>
   );
 }
