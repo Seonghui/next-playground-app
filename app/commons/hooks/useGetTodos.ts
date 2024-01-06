@@ -7,7 +7,10 @@ export default function useGetTodos() {
     queryFn: todosService.getTodos,
   });
 
+  const sortedTodos = query.data.sort((a, b) => b.id - a.id);
+  console.log({ query });
   return {
     ...query,
+    sortedTodos,
   };
 }
