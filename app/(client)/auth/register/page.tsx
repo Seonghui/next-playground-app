@@ -1,6 +1,6 @@
 "use client";
 import authService from "@/app/commons/apis/auth";
-import { LOCAL_STORAGE_KEY } from "@/app/commons/constants";
+import { COOKIE_KEY } from "@/app/commons/constants";
 import { useMutation } from "@tanstack/react-query";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useRouter } from "next/navigation";

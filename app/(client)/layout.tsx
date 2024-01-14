@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import {
-  Breadcrumb,
   Layout as AntdLayout,
   Menu,
   MenuProps,
@@ -12,37 +11,37 @@ import {
   Button,
 } from "antd";
 import { useState } from "react";
-import useAuth from "../commons/hooks/useAuth";
-import { LOCAL_STORAGE_KEY } from "../commons/constants";
 import { usePathname, useRouter } from "next/navigation";
 import NavLoginButton from "../commons/components/auth/NavLoginButton";
 
 const { Header, Content, Footer, Sider } = AntdLayout;
 
+const links = [
+  { name: "client", href: "/client" },
+  {
+    name: "todos",
+    href: "/todos",
+  },
+  { name: "guestbook", href: "/guestbook" },
+  { name: "myPage", href: "/user/profile" },
+];
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [current, setCurrent] = useState(pathname.replace("/", ""));
+  const currentKey = links.find((item) => item.href === pathname)?.name;
+  const [current, setCurrent] = useState(currentKey);
+
+  console.log(current);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const items: MenuProps["items"] = [
-    {
-      key: "client",
-      label: <Link href={`/client`}>Main</Link>,
-    },
-    {
-      key: "todos",
-      label: <Link href={`/todos`}>Todo List</Link>,
-    },
-    {
-      key: "guestbook",
-      label: <Link href={`/guestbook`}>Guestbook</Link>,
-    },
-    {
-      key: "myPage",
-      label: <Link href={`/user/profile`}>My Page</Link>,
-    },
-  ];
+
+  const items = links.map((item) => {
+    return {
+      key: item.name,
+      label: <Link href={item.href}>{item.name}</Link>,
+    };
+  });
   const onClick: MenuProps["onClick"] = (e) => {
     setCurrent(e.key);
   };
@@ -67,10 +66,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="demo-logo" />
         <Menu
           onClick={onClick}
-          selectedKeys={[current]}
+          selectedKeys={[current ?? links[0].name]}
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={["2"]}
           items={items}
           style={{ flex: 1, minWidth: 0 }}
         />

@@ -1,6 +1,6 @@
 export const API_ENDPOINT = "http://localhost:3001";
 
-export const LOCAL_STORAGE_KEY = {
+export const COOKIE_KEY = {
   accessToken: "at",
 };
 

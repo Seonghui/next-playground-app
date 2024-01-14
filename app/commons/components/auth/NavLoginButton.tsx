@@ -1,17 +1,29 @@
 "use client";
 
 import { Button } from "antd";
-import { LOCAL_STORAGE_KEY } from "../../constants";
+import { COOKIE_KEY } from "../../constants";
 import { useRouter } from "next/navigation";
+import useAuth from "../../hooks/useAuth";
+import { Fragment, useEffect, useState } from "react";
 
 export default function NavLoginButton() {
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const { clearToken, hasToken } = useAuth();
   const router = useRouter();
-  const hasToken = localStorage.getItem(LOCAL_STORAGE_KEY.accessToken);
   const handleClickLogout = () => {
-    localStorage.removeItem(LOCAL_STORAGE_KEY.accessToken);
+    clearToken();
     router.push("/client");
     router.refresh();
   };
+  if (!mounted) {
+    return <Fragment />;
+  }
+
   return (
     <>
       {hasToken ? (

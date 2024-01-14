@@ -1,11 +1,12 @@
-import { LOCAL_STORAGE_KEY } from "../constants";
+import { deleteCookie, getCookie, setCookie } from "cookies-next";
+import { COOKIE_KEY } from "../constants";
 
 export default function useAuth() {
-  const token = localStorage.getItem(LOCAL_STORAGE_KEY.accessToken);
-  const clearToken = () =>
-    localStorage.removeItem(LOCAL_STORAGE_KEY.accessToken);
-  const setToken = (token: string) =>
-    localStorage.setItem(LOCAL_STORAGE_KEY.accessToken, token);
+  const token = getCookie(COOKIE_KEY.accessToken);
+  const clearToken = () => deleteCookie(COOKIE_KEY.accessToken);
+  const setToken = (token: string) => setCookie(COOKIE_KEY.accessToken, token);
+
+  console.log(token);
 
   return {
     hasToken: !!token,

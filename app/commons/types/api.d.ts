@@ -19,8 +19,9 @@ interface User {
   email: string;
 }
 
-interface RegisterUserResponse extends User {
+interface RegisterUserResponse {
   accessToken: string;
+  user: User;
 }
 
 interface GuestBookResponse {
