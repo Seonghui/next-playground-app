@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import StyledComponentsRegistry from "./commons/lib/AntdRegistry";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,11 +24,11 @@ export default function RootLayout({
     <html lang="ko">
       <body className={inter.className}>
         <Providers>
-          <StyledComponentsRegistry>
+          <AntdRegistry>
             {children}
             {modals}
             <div id="modal-root" />
-          </StyledComponentsRegistry>
+          </AntdRegistry>
         </Providers>
       </body>
     </html>

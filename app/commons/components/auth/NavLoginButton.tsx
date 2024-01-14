@@ -5,13 +5,10 @@ import { COOKIE_KEY } from "../../constants";
 import { useRouter } from "next/navigation";
 import useAuth from "../../hooks/useAuth";
 import { Fragment, useEffect, useState } from "react";
+import useMount from "../../hooks/useMount";
 
 export default function NavLoginButton() {
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMount();
 
   const { clearToken, hasToken } = useAuth();
   const router = useRouter();
