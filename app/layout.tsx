@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "./commons/lib/AntdRegistry";
 import { Providers } from "./providers";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,21 +21,14 @@ export default function RootLayout({
   modals: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={inter.className}>
-        <p>RootLayout</p>
-        <ul>
-          <li>
-            <Link href="/todos">todos</Link>
-            <Link href="/posts">posts</Link>
-          </li>
-        </ul>
-
         <Providers>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-
-          {modals}
-          <div id="modal-root" />
+          <StyledComponentsRegistry>
+            {children}
+            {modals}
+            <div id="modal-root" />
+          </StyledComponentsRegistry>
         </Providers>
       </body>
     </html>

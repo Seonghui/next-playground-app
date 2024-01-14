@@ -2,6 +2,7 @@
 
 import todosService from "@/app/commons/apis/todos";
 import NewTodoInput from "@/app/commons/components/todos/NewTodoInput";
+import { REACT_QUERY_KEY } from "@/app/commons/constants";
 import useGetTodos from "@/app/commons/hooks/useGetTodos";
 import { useMutation, useQueries, useQueryClient } from "@tanstack/react-query";
 import {
@@ -34,17 +35,16 @@ export default function ClientPage() {
     mutationFn: todosService.updateTodoItem,
     onSuccess: () => {
       reset();
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
+      queryClient.invalidateQueries({ queryKey: [REACT_QUERY_KEY.todos] });
     },
   });
 
   const router = useRouter();
   return (
-    <div>
+    <Space direction="vertical" size="middle" style={{ display: "flex" }}>
       <NewTodoInput />
       <List
-        header={<div>Header</div>}
-        footer={<div>Footer</div>}
+        header={<div>Todo List</div>}
         bordered
         dataSource={sortedTodos}
         renderItem={(item) => (
@@ -114,6 +114,6 @@ export default function ClientPage() {
           </List.Item>
         )}
       />
-    </div>
+    </Space>
   );
 }

@@ -160,11 +160,36 @@
       "todo": "dfsfsf",
       "completed": false,
       "id": 30
+    }
+  ],
+  "users": [
+    {
+      "email": "qwe@qwe.com",
+      "password": "$2a$10$YVxioqM1EvgmUAsE9HOuJuARsUe.5tgkSb/rLSyF7/o8TjGytv7o2",
+      "id": 1
     },
     {
-      "todo": "dfdfdf",
-      "completed": false,
-      "id": 31
+      "email": "abc1@abc.com",
+      "password": "$2a$10$2XRLqT.NtgJS4uFrQ8I2UOn269KiQvo7jJlM480jWFGPHnSr2/3re",
+      "id": 2
+    },
+    {
+      "email": "abc2@abc.com",
+      "password": "$2a$10$iDoYFXMIbW6n05JLp.HJfe4dibB7JzeoLANmbwSq.vTJsJekUSh5q",
+      "id": 3
+    },
+    {
+      "email": "asd@asd.com",
+      "password": "$2a$10$YlzpSd5QcoC9lO0wBC1SyuTrx1fThpger.ILFXHcVHIOokqbyloH6",
+      "id": 4
+    }
+  ],
+  "guestbook": [
+    {
+      "id": 1,
+      "userId": 2,
+      "title": "user 2 타이틀",
+      "content": "어쩌구저쩌구 컨텐츠"
     }
   ]
 }

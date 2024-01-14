@@ -1,18 +1,18 @@
 "use client";
 
 import todosService from "@/app/commons/apis/todos";
+import { REACT_QUERY_KEY } from "@/app/commons/constants";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Modal } from "antd";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 
 export default function Page(props: { params: { id: string } }) {
-  console.log({ props });
   const queryClient = useQueryClient();
   const deleteMutation = useMutation({
     mutationFn: todosService.deleteTodo,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
+      queryClient.invalidateQueries({ queryKey: [REACT_QUERY_KEY.todos] });
       router.back();
     },
   });
